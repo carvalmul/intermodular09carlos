@@ -3,41 +3,29 @@ name: Modificar Contingut Github
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   ModificaRepositoriGithubAmbGithubActions_ElTeuNom:
     runs-on: ubuntu-latest
     permissions: 
-      contents: write  # necesario para hacer push
+      contents: write  # per poder modificar el contingut del repositori
     steps:
-      # 1️⃣ Clonar el repositorio
       - uses: actions/checkout@v6
 
-      # 2️⃣ Modificar README.md
       - name: Modifica fitxer README.md
         run: |
           echo "- ${{ github.actor }} modifica el repo ${{ github.repository }} : $(date)" >> README.md
 
-      # 3️⃣ Modificar index.html añadiendo un <li> dentro de <ul>
       - name: Modifica fitxer index.html
         run: |
-          sed -i "/<ul>/a <li>Contingut modificat per ${{ github.actor }} el $(date)</li>" index.html
+          # Afegim un element a la llista dins <ul>
+          sed -i '/<ul>/a \    <li>Contingut modificat per ${{ github.actor }} el $(date)</li>' index.html
 
-      # 4️⃣ Mostrar los cambios antes de commit (debug)
-      - name: Mostrar fitxers modificats
-        run: |
-          git status
-          echo "=== index.html ==="
-          cat index.html
-          echo "=== README.md ==="
-          cat README.md
-
-      # 5️⃣ Configurar git, hacer commit y push
       - name: Commit i push
         run: |
           git config --global user.name "${{ github.actor }}"
           git config --global user.email "${{ github.actor }}@users.noreply.github.com"
-          git add -A
-          git diff --cached --quiet || git commit -m "Afegit contingut a README.md i modificat index.html"
+          git add --all
+          git commit -m "Afegit contingut a README.md i modificat index.html"
           git push
