@@ -20,3 +20,4 @@ Lloc web senzill amb dues pàgines HTML i imatges.
 ## ✨ Autor
 
 **Carlos Valls Mulet - 1r DAW**
+- carvalmul modifica el repo carvalmul/intermodular09carlos : Thu Jan  8 16:31:55 UTC 2026

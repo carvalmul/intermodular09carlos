@@ -1,0 +1,31 @@
+name: Modificar Contingut Github
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  ModificaRepositoriGithubAmbGithubActions_ElTeuNom:
+    runs-on: ubuntu-latest
+    permissions: 
+      contents: write  # per poder modificar el contingut del repositori
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Modifica fitxer README.md
+        run: |
+          echo "- ${{ github.actor }} modifica el repo ${{ github.repository }} : $(date)" >> README.md
+
+      - name: Modifica fitxer index.html
+        run: |
+          # Afegim un element a la llista dins <ul>
+          sed -i '/<ul>/a \    <li>Contingut modificat per ${{ github.actor }} el $(date)</li>' index.html
+
+      - name: Commit i push
+        run: |
+          git config --global user.name "${{ github.actor }}"
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
+          git add --all
+          git commit -m "Afegit contingut a README.md i modificat index.html"
+          git push
