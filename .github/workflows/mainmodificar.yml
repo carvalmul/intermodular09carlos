@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  ModificaRepositoriGithubAmbGithubActions_ElTeuNom:
+  Modifica_Repositori_Github_Actions:
     runs-on: ubuntu-latest
     permissions: 
       contents: write  # per poder modificar el contingut del repositori
