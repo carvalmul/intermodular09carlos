@@ -23,3 +23,4 @@ Lloc web senzill amb dues pàgines HTML i imatges.
 - carvalmul modifica el repo carvalmul/intermodular09carlos : Thu Jan  8 16:31:55 UTC 2026
 - carvalmul modifica el repo carvalmul/intermodular09carlos : Thu Jan  8 17:35:22 UTC 2026
 - carvalmul modifica el repo carvalmul/intermodular09carlos : Thu Jan  8 17:41:38 UTC 2026
+- carvalmul modifica el repo carvalmul/intermodular09carlos : Thu Jan  8 17:45:09 UTC 2026
